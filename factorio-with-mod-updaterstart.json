@@ -1,0 +1,74 @@
+[
+    {
+        "UpdateStageName": "Download Mod Updater",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"cd factorio/server && wget -qO- https://github.com/dreamdenizen/factorio-mod-updater/releases/latest/download/factorio-mod-updater_linux_amd64.tar.gz | tar xz\"",
+        "SkipOnFailure": true
+    },
+    {
+        "UpdateStageName": "Set Mod Updater Executable",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"chmod +x factorio/server/mod_updater\"",
+        "SkipOnFailure": true
+    },
+    {
+        "UpdateStageName": "List Mod Updates",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"cd factorio/server && ./mod_updater list .\"",
+        "SkipOnFailure": true
+    },
+    {
+        "UpdateStageName": "Run Mod Updater",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"cd factorio/server && ./mod_updater update .\"",
+        "SkipOnFailure": true
+    },
+    {
+        "UpdateStageName": "Create Save",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"cd factorio/server && [ -e \\\"saves/{{SaveFile}}\\\" ] || { ./bin/x64/factorio --create saves/{{SaveFile}} --map-gen-settings data/map-gen-settings.json --map-settings data/map-settings.json && wait; }\"",
+        "UpdateSourceConditionSetting": "StartMode",
+        "UpdateSourceConditionValue": "--start-server saves/{{SaveFile}}",
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Create Save",
+        "UpdateSourcePlatform": "Windows",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "cmd.exe",
+        "UpdateSourceArgs": "/C cd factorio\\server & if not exist \"saves\\{{SaveFile}}\" ( .\\bin\\x64\\factorio.exe --create saves\\{{SaveFile}} --map-gen-settings data\\map-gen-settings.json --map-settings data\\map-settings.json )",
+        "UpdateSourceConditionSetting": "StartMode",
+        "UpdateSourceConditionValue": "--start-server saves/{{SaveFile}}",
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Create Save",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"cd factorio/server && ./bin/x64/factorio --create saves/{{SaveFile}} --map-gen-settings data/map-gen-settings.json --map-settings data/map-settings.json && wait\"",
+        "UpdateSourceConditionSetting": "StartMode",
+        "UpdateSourceConditionValue": "--start-server saves/{{SaveFile}} ",
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Create Save",
+        "UpdateSourcePlatform": "Windows",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "cmd.exe",
+        "UpdateSourceArgs": "/C cd factorio\\server & .\\bin\\x64\\factorio.exe --create saves\\{{SaveFile}} --map-gen-settings data\\map-gen-settings.json --map-settings data\\map-settings.json",
+        "UpdateSourceConditionSetting": "StartMode",
+        "UpdateSourceConditionValue": "--start-server saves/{{SaveFile}} ",
+        "SkipOnFailure": false
+    }
+]
