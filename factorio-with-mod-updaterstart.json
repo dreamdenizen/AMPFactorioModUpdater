@@ -28,7 +28,7 @@
         "UpdateSourcePlatform": "Windows",
         "UpdateSource": "Executable",
         "UpdateSourceData": "powershell.exe",
-        "UpdateSourceArgs": "-NoProfile -Command \"cd factorio\\server; Invoke-WebRequest -Uri https://github.com/dreamdenizen/factorio-mod-updater/releases/latest/download/factorio-mod-updater_windows_amd64.zip -OutFile mod_updater.zip; Expand-Archive -Path mod_updater.zip -DestinationPath . -Force; Remove-Item mod_updater.zip\"",
+        "UpdateSourceArgs": "-NoProfile -Command \"cd factorio\\\\server; Invoke-WebRequest -Uri https://github.com/dreamdenizen/factorio-mod-updater/releases/latest/download/factorio-mod-updater_windows_amd64.zip -OutFile mod_updater.zip; Expand-Archive -Path mod_updater.zip -DestinationPath . -Force; Remove-Item mod_updater.zip\"",
         "SkipOnFailure": true
     },
     {
@@ -36,7 +36,7 @@
         "UpdateSourcePlatform": "Windows",
         "UpdateSource": "Executable",
         "UpdateSourceData": "cmd.exe",
-        "UpdateSourceArgs": "/C cd factorio\\server & mod_updater.exe .",
+        "UpdateSourceArgs": "/C cd factorio\\\\server & mod_updater.exe .",
         "SkipOnFailure": true
     },
     {
@@ -54,7 +54,7 @@
         "UpdateSourcePlatform": "Windows",
         "UpdateSource": "Executable",
         "UpdateSourceData": "cmd.exe",
-        "UpdateSourceArgs": "/C cd factorio\\server & if not exist \"saves\\{{SaveFile}}\" ( .\\bin\\x64\\factorio.exe --create saves\\{{SaveFile}} --map-gen-settings data\\map-gen-settings.json --map-settings data\\map-settings.json )",
+        "UpdateSourceArgs": "/C cd factorio\\\\server & if not exist \"saves\\\\{{SaveFile}}\" ( .\\\\bin\\\\x64\\\\factorio.exe --create saves\\\\{{SaveFile}} --map-gen-settings data\\\\map-gen-settings.json --map-settings data\\\\map-settings.json )",
         "UpdateSourceConditionSetting": "StartMode",
         "UpdateSourceConditionValue": "--start-server saves/{{SaveFile}}",
         "SkipOnFailure": false
@@ -74,7 +74,7 @@
         "UpdateSourcePlatform": "Windows",
         "UpdateSource": "Executable",
         "UpdateSourceData": "cmd.exe",
-        "UpdateSourceArgs": "/C cd factorio\\server & .\\bin\\x64\\factorio.exe --create saves\\{{SaveFile}} --map-gen-settings data\\map-gen-settings.json --map-settings data\\map-settings.json",
+        "UpdateSourceArgs": "/C cd factorio\\\\server & .\\\\bin\\\\x64\\\\factorio.exe --create saves\\\\{{SaveFile}} --map-gen-settings data\\\\map-gen-settings.json --map-settings data\\\\map-settings.json",
         "UpdateSourceConditionSetting": "StartMode",
         "UpdateSourceConditionValue": "--start-server saves/{{SaveFile}} ",
         "SkipOnFailure": false
