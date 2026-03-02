@@ -2,13 +2,9 @@
     {
         "UpdateStageName": "Download Mod Updater",
         "UpdateSourcePlatform": "Linux",
-        "UpdateSource": "FetchURL",
-        "UpdateSourceData": "https://github.com/dreamdenizen/factorio-mod-updater/releases/latest/download/factorio-mod-updater_linux_amd64.tar.gz",
-        "UpdateSourceArgs": "mod_updater.tar.gz",
-        "UpdateSourceTarget": "{{$FullBaseDir}}",
-        "UnzipUpdateSource": true,
-        "OverwriteExistingFiles": true,
-        "DeleteAfterExtract": true,
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"cd factorio/server && wget -qO- https://github.com/dreamdenizen/factorio-mod-updater/releases/latest/download/factorio-mod-updater_linux_amd64.tar.gz | tar xz\"",
         "SkipOnFailure": true
     },
     {
@@ -16,7 +12,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"cd '{{$FullBaseDir}}' && chmod +x mod_updater\"",
+        "UpdateSourceArgs": "-c \"chmod +x factorio/server/mod_updater\"",
         "SkipOnFailure": true
     },
     {
@@ -24,19 +20,15 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"cd '{{$FullBaseDir}}' && ./mod_updater .\"",
+        "UpdateSourceArgs": "-c \"cd factorio/server && ./mod_updater .\"",
         "SkipOnFailure": true
     },
     {
         "UpdateStageName": "Download Mod Updater",
         "UpdateSourcePlatform": "Windows",
-        "UpdateSource": "FetchURL",
-        "UpdateSourceData": "https://github.com/dreamdenizen/factorio-mod-updater/releases/latest/download/factorio-mod-updater_windows_amd64.zip",
-        "UpdateSourceArgs": "mod_updater.zip",
-        "UpdateSourceTarget": "{{$FullBaseDir}}",
-        "UnzipUpdateSource": true,
-        "OverwriteExistingFiles": true,
-        "DeleteAfterExtract": true,
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "powershell.exe",
+        "UpdateSourceArgs": "-NoProfile -Command \"cd factorio\\\\server; Invoke-WebRequest -Uri https://github.com/dreamdenizen/factorio-mod-updater/releases/latest/download/factorio-mod-updater_windows_amd64.zip -OutFile mod_updater.zip; Expand-Archive -Path mod_updater.zip -DestinationPath . -Force; Remove-Item mod_updater.zip\"",
         "SkipOnFailure": true
     },
     {
@@ -44,7 +36,7 @@
         "UpdateSourcePlatform": "Windows",
         "UpdateSource": "Executable",
         "UpdateSourceData": "cmd.exe",
-        "UpdateSourceArgs": "/C cd /d \"{{$FullBaseDir}}\" & mod_updater.exe .",
+        "UpdateSourceArgs": "/C cd factorio\\\\server & mod_updater.exe .",
         "SkipOnFailure": true
     },
     {
