@@ -13,18 +13,13 @@ It supports both **Linux** and **Windows** AMP instances.
 ## Installation
 1. Open your AMP web interface and go to **Configuration -> Instance Deployment**.
 2. Scroll down to **Template Repositories** and click Add.
-3. Enter `dreamdenizen/amp-factorio-with-mod-updater:main`
+3. Enter `dreamdenizen/AMPFactorioModUpdater:main`
 4. Click **Fetch Latest**.
 5. When creating a new instance, you can now select **Factorio with Mod Updater**.
 
 ## Requirements
-- CubeCoders AMP v2.5.0.10 or later
+- CubeCoders AMP v2.6.5.2 or later
 - Ensure that the instance has outgoing internet access so it can reach the Factorio Mod Portal and GitHub Releases network.
-
-## Troubleshooting
-
-If you encounter `State: 3` when updating or fetching the template:
-Make sure no files in the cloned template directory are locked. In AMP, you **cannot** update instances from a template while they are currently running. Ensure any running `Factorio with Mod Updater` instances are fully **Stopped** before clicking "Fetch Latest" or "Update Instances".
 
 ## License
 Provided as-is for the AMP and Factorio communities. Factorio is a trademark of Wube Software. AMP is a trademark of CubeCoders Ltd.
