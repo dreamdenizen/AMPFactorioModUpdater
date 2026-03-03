@@ -62,7 +62,7 @@
         "UpdateSourcePlatform": "All",
         "UpdateSource": "CreateDirectory",
         "UpdateSourceArgs": "{{$FullBaseDir}}saves",
-        "SkipOnFailure": true
+        "SkipOnFailure": false
     },
     {
         "UpdateStageName": "Server-Settings File Copy",
@@ -71,7 +71,7 @@
         "UpdateSourceData": "{{$FullBaseDir}}data/server-settings.json",
         "UpdateSourceArgs": "{{$FullBaseDir}}data/server-settings.example.json",
         "OverwriteExistingFiles": false,
-        "SkipOnFailure": true
+        "SkipOnFailure": false
     },
     {
         "UpdateStageName": "Map-Gen-Settings File Copy",
@@ -80,7 +80,7 @@
         "UpdateSourceData": "{{$FullBaseDir}}data/map-gen-settings.json",
         "UpdateSourceArgs": "{{$FullBaseDir}}data/map-gen-settings.example.json",
         "OverwriteExistingFiles": false,
-        "SkipOnFailure": true
+        "SkipOnFailure": false
     },
     {
         "UpdateStageName": "Map-Settings File Copy",
@@ -89,7 +89,7 @@
         "UpdateSourceData": "{{$FullBaseDir}}data/map-settings.json",
         "UpdateSourceArgs": "{{$FullBaseDir}}data/map-settings.example.json",
         "OverwriteExistingFiles": false,
-        "SkipOnFailure": true
+        "SkipOnFailure": false
     },
     {
         "UpdateStageName": "Create Server-Adminlist File",
@@ -97,8 +97,7 @@
         "UpdateSource": "CreateFile",
         "UpdateSourceData": "[]",
         "UpdateSourceArgs": "{{$FullBaseDir}}server-adminlist.json",
-        "OverwriteExistingFiles": false,
-        "SkipOnFailure": true
+        "OverwriteExistingFiles": false
     },
     {
         "UpdateStageName": "Create Server-Whitelist File",
@@ -106,8 +105,7 @@
         "UpdateSource": "CreateFile",
         "UpdateSourceData": "[]",
         "UpdateSourceArgs": "{{$FullBaseDir}}data/server-whitelist.json",
-        "OverwriteExistingFiles": false,
-        "SkipOnFailure": true
+        "OverwriteExistingFiles": false
     },
     {
         "UpdateStageName": "Create Server-Banlist File",
@@ -115,7 +113,6 @@
         "UpdateSource": "CreateFile",
         "UpdateSourceData": "[]",
         "UpdateSourceArgs": "{{$FullBaseDir}}data/server-banlist.json",
-        "OverwriteExistingFiles": false,
-        "SkipOnFailure": true
+        "OverwriteExistingFiles": false
     }
 ]
